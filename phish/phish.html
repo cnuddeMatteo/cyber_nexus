@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Phish_Hunter | OSINT Analyzer</title>
+    <link rel="stylesheet" href="style_phish.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="start-screen" class="cyber-modal-overlay">
+        <div class="cyber-card">
+            <h1 class="cyber-title">PHISH_<span class="text-yellow">HUNTER</span></h1>
+            
+            <p class="mission-brief">
+                Outil d'Open Source Intelligence (OSINT).<br>
+                Analysez n'importe quel lien suspect pour extraire ses métadonnées, vérifier son certificat et interroger les bases de données mondiales de menaces.
+            </p>
+
+            <div class="rules-grid">
+                <div class="rule-box osint-box">
+                    <i class="fas fa-globe"></i>
+                    <h3>DOMAIN INTEL</h3>
+                    <p>Analyse de l'âge du domaine via WHOIS. Les sites récents sont souvent malveillants.</p>
+                </div>
+                
+                <div class="vs-divider"><i class="fas fa-database"></i></div>
+
+                <div class="rule-box osint-box">
+                    <i class="fas fa-bug"></i>
+                    <h3>THREAT FEEDS</h3>
+                    <p>Croisement avec les listes noires (VirusTotal, PhishTank, SafeBrowsing).</p>
+                </div>
+            </div>
+
+            <button class="btn-start-cyber" onclick="startScanner()">
+                <i class="fas fa-search"></i> OUVRIR L'OUTIL
+            </button>
+        </div>
+    </div>
+
+    <div class="hud">
+        <header class="hud-header">
+            <div class="logo">
+                <i class="fas fa-search-location"></i> PHISH_HUNTER <span class="text-yellow">OSINT</span>
+            </div>
+            <a href="../index.html" class="btn-back"><i class="fas fa-chevron-left"></i> NEXUS</a>
+        </header>
+
+        <main class="scanner-container">
+            
+            <div class="scan-tabs">
+                <button id="tab-url" class="tab-btn active"><i class="fas fa-globe"></i> ANALYSE URL</button>
+                <button id="tab-file" class="tab-btn"><i class="fas fa-file-upload"></i> ANALYSE FICHIER</button>
+            </div>
+
+            <div class="search-box" id="box-url">
+                <input type="text" id="url-input" placeholder="Entrez une URL (ex: http://paypal-secure-login.com)">
+                <button id="btn-scan-url"><i class="fas fa-radar"></i> SCAN</button>
+            </div>
+
+            <div class="search-box hidden" id="box-file">
+                <label for="file-input" class="custom-file-upload">
+                    <i class="fas fa-upload"></i> <span id="file-name-display">Sélectionner un fichier...</span>
+                </label>
+                <input type="file" id="file-input" class="file-input" style="display: none;">
+                
+                <button id="btn-scan-file"><i class="fas fa-fingerprint"></i> HASH & SCAN</button>
+            </div>
+
+            <div id="scan-terminal" class="scan-terminal hidden">
+                <div class="term-header">Initialisation de la requête OSINT...</div>
+                <div id="scan-logs" class="scan-logs"></div>
+                <div class="progress-bar-container"><div id="scan-progress"></div></div>
+            </div>
+
+            <div id="report-dashboard" class="report-dashboard hidden">
+                
+                <div class="report-card score-card">
+                    <h3>NIVEAU DE MENACE</h3>
+                    <div class="score-circle" id="threat-score">--/70</div>
+                    <div id="threat-status" class="status-label">EN ATTENTE</div>
+                    <div id="fp-warning" class="fp-warning hidden">
+                        <i class="fas fa-exclamation-triangle"></i> Faux positif possible (Détection faible)
+                    </div>
+                    <div style="margin-top:10px; font-size:0.8rem; color:var(--text-muted);">
+                        Dernière analyse : <strong id="last-analysis" class="text-main">--</strong>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3 id="target-title"><i class="fas fa-id-card"></i> INFOS CIBLE</h3>
+                    <ul class="data-list" id="target-details">
+                        </ul>
+                </div>
+
+                <div class="report-card">
+                    <h3><i class="fas fa-shield-alt"></i> SÉCURITÉ & RÉSEAU</h3>
+                    <ul class="data-list" id="network-details">
+                        </ul>
+                </div>
+
+                <div class="report-card full-width">
+                    <h3><i class="fas fa-bug"></i> RAPPORTS DES MOTEURS DE SÉCURITÉ</h3>
+                    <div class="av-grid" id="av-grid">
+                        </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script_phish.js"></script>
+</body>
+</html>

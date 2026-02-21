@@ -1,0 +1,119 @@
+:root {
+    --bg-dark: #05050a;
+    --terminal-green: #00ff41;
+    --red-team: #ff003c;
+    --blue-team: #00e5ff;
+    --osint: #ffb300;
+    --text-main: #e0e0e0;
+    --panel-bg: rgba(10, 15, 20, 0.8);
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+}
+
+/* Effet écran CRT */
+.scanlines {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+    background-size: 100% 4px; z-index: 100; pointer-events: none;
+}
+
+.container { width: 90%; max-width: 1100px; padding: 40px 0; z-index: 10; position: relative; }
+
+header { margin-bottom: 50px; }
+.sys-status { color: #555; font-size: 0.9rem; margin-bottom: 10px; }
+.text-green { color: var(--terminal-green); text-shadow: 0 0 5px var(--terminal-green); }
+
+h1 { font-size: 3.5rem; margin: 0; color: #fff; letter-spacing: 2px; }
+.subtitle { color: #888; font-size: 1.1rem; }
+.line { width: 50px; height: 3px; background: var(--terminal-green); margin-top: 20px; }
+
+.grid-projects {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+}
+
+.card {
+    background: var(--panel-bg); border: 1px solid #333; border-radius: 5px;
+    padding: 30px; text-decoration: none; color: var(--text-main);
+    position: relative; overflow: hidden; transition: 0.3s;
+    display: flex; flex-direction: column;
+}
+
+.card:hover { border-color: #666; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.icon-box { font-size: 2rem; color: #555; transition: 0.3s; }
+
+.badge { font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 3px; letter-spacing: 1px; }
+.blue-team { background: rgba(0, 229, 255, 0.1); color: var(--blue-team); border: 1px solid var(--blue-team); }
+.red-team { background: rgba(255, 0, 60, 0.1); color: var(--red-team); border: 1px solid var(--red-team); }
+.osint { background: rgba(255, 179, 0, 0.1); color: var(--osint); border: 1px solid var(--osint); }
+
+h2 { margin: 0 0 10px 0; font-size: 1.5rem; }
+.desc { color: #aaa; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; }
+
+.tags { margin-top: 20px; display: flex; gap: 10px; }
+.tags span { background: #111; padding: 4px 10px; font-size: 0.75rem; border: 1px solid #333; color: #888; }
+
+.card-arrow { position: absolute; bottom: 30px; right: 30px; opacity: 0; transform: translateX(-10px); transition: 0.3s; color: var(--blue-team); }
+.card-aegis:hover .card-arrow { opacity: 1; transform: translateX(0); }
+.card-aegis:hover .icon-box { color: var(--blue-team); }
+.card-aegis:hover { border-color: var(--blue-team); box-shadow: 0 0 20px rgba(0, 229, 255, 0.1); }
+
+.card-hash:hover .card-arrow { 
+    opacity: 1; 
+    transform: translateX(0); 
+    color: var(--red-team); 
+}
+.card-hash:hover .icon-box { 
+    color: var(--red-team); 
+    text-shadow: 0 0 15px var(--red-team); /* C'est cette ligne qui fait l'effet "Néon" */
+}
+.card-hash:hover { 
+    border-color: var(--red-team); 
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); 
+}
+/* Effet Hover pour la carte Phish_Hunter (OSINT) */
+.card-osint:hover .card-arrow { opacity: 1; transform: translateX(0); color: var(--osint); }
+.card-osint:hover .icon-box { color: var(--osint); text-shadow: 0 0 15px var(--osint); }
+.card-osint:hover { border-color: var(--osint); box-shadow: 0 0 20px rgba(255, 179, 0, 0.2); }
+
+/* Cartes Verrouillées */
+.locked { opacity: 0.5; pointer-events: none; }
+.lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; font-weight: bold; color: #555; letter-spacing: 2px; }
+
+/* --- BOUTON PROFIL --- */
+.profile-section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-profile {
+    display: inline-block;
+    background: rgba(0, 255, 65, 0.05);
+    color: var(--terminal-green);
+    border: 1px dashed var(--terminal-green);
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-profile:hover {
+    background: var(--terminal-green);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+    border-style: solid;
+    transform: translateY(-3px);
+}

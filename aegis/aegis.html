@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Aegis | Live Threat Map</title>
+    <link rel="stylesheet" href="style_aegis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="start-screen" class="cyber-modal-overlay">
+        <div class="cyber-card">
+            <h1 class="cyber-title">PROJECT <span class="text-cyan">AEGIS</span></h1>
+            
+            <p class="mission-brief">
+                Visualisation en temps réel d'un <strong>Honeypot</strong> (Pot de Miel).<br>
+                Ce système simule un serveur vulnérable exposé sur Internet pour étudier le comportement des attaquants et bloquer les IP malveillantes.
+            </p>
+
+            <div class="rules-grid">
+                <div class="rule-box blue-team-box">
+                    <i class="fas fa-server"></i>
+                    <h3>LA CIBLE (BLUE TEAM)</h3>
+                    <p>Un faux service SSH (Port 22).<br>Il enregistre en silence toutes les tentatives de connexion.</p>
+                </div>
+                
+                <div class="vs-divider"><i class="fas fa-network-wired"></i></div>
+
+                <div class="rule-box red-team-box">
+                    <i class="fas fa-robot"></i>
+                    <h3>LA MENACE (BOTA)</h3>
+                    <p>Scanners automatisés mondiaux.<br>Attaques par force brute sur des mots de passe faibles.</p>
+                </div>
+            </div>
+
+            <div class="controls-hint text-yellow">
+                <i class="fas fa-exclamation-triangle"></i> Attention : Afflux de requêtes réseau imminent.
+            </div>
+
+            <button class="btn-start-cyber" onclick="startRadar()">
+                <i class="fas fa-satellite-dish"></i> INITIALISER LE SUIVI RADAR
+            </button>
+        </div>
+    </div>
+    <div class="hud">
+        <header class="hud-header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i> PROJECT_AEGIS <span class="blink_me text-red">● LIVE</span>
+            </div>
+            <a href="../index.html" class="btn-back"><i class="fas fa-chevron-left"></i> NEXUS</a>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat"><span class="label">ATTACKS BLOCKED</span><span class="value text-cyan" id="atk-count">0</span></div>
+            <div class="stat"><span class="label">TOP PORT</span><span class="value text-red">22 (SSH)</span></div>
+            <div class="stat"><span class="label">SERVER STATUS</span><span class="value text-green">SECURE</span></div>
+        </div>
+
+        <aside class="terminal-panel">
+            <div class="terminal-header">syslog - honeypot.log</div>
+            <div class="terminal-content" id="terminal-logs">
+                </div>
+        </aside>
+    </div>
+
+    <canvas id="map-canvas"></canvas>
+
+    <script src="script_aegis.js"></script>
+</body>
+</html>

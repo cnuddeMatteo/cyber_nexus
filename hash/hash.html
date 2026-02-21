@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hash_Breaker | Password Cracker</title>
+    <link rel="stylesheet" href="style_hash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="start-screen" class="cyber-modal-overlay">
+        <div class="cyber-card">
+            <h1 class="cyber-title">HASH_<span class="text-red">BREAKER</span></h1>
+            
+            <p class="mission-brief">
+                Simulateur d'attaques cryptographiques.<br>
+                Découvrez à quelle vitesse un mot de passe peut être compromis par des attaques par force brute ou dictionnaire.
+            </p>
+
+            <div class="rules-grid">
+                <div class="rule-box red-team-box">
+                    <i class="fas fa-hammer"></i>
+                    <h3>FORCE BRUTE</h3>
+                    <p>Teste absolument toutes les combinaisons possibles (a, b, c... aa, ab...). Infaillible mais lent.</p>
+                </div>
+                
+                <div class="vs-divider"><i class="fas fa-bolt"></i></div>
+
+                <div class="rule-box red-team-box">
+                    <i class="fas fa-book"></i>
+                    <h3>DICTIONNAIRE</h3>
+                    <p>Teste une liste de mots de passe connus (rockyou.txt). Très rapide contre les humains prévisibles.</p>
+                </div>
+            </div>
+
+            <button class="btn-start-cyber" onclick="startCracker()">
+                <i class="fas fa-terminal"></i> ACCÉDER AU TERMINAL
+            </button>
+        </div>
+    </div>
+
+    <div class="hud">
+        <header class="hud-header">
+            <div class="logo">
+                <i class="fas fa-unlock-alt"></i> HASH_BREAKER <span class="text-red">v2.0</span>
+            </div>
+            <a href="../index.html" class="btn-back"><i class="fas fa-chevron-left"></i> NEXUS</a>
+        </header>
+
+        <aside class="config-panel">
+            <h3>CIBLE</h3>
+            <div class="input-group">
+                <input type="password" id="target-pwd" placeholder="Ex: azerty123">
+                <button id="btn-generate" title="Générer un mot de passe fort"><i class="fas fa-dice"></i></button>
+                <button id="toggle-pwd" title="Afficher/Masquer"><i class="fas fa-eye"></i></button>
+            </div>
+            
+            <h3>MÉTHODE</h3>
+            <div class="btn-group">
+                <button class="mode-btn active" id="btn-brute">Force Brute</button>
+                <button class="mode-btn" id="btn-dict">Dictionnaire</button>
+            </div>
+
+            <div class="stats-box">
+                <div class="stat-line"><span>Entropie :</span> <span id="stat-entropy" class="text-yellow">-- bits</span></div>
+                <div class="stat-line"><span>Temps estimé :</span> <span id="stat-time" class="text-cyan">--</span></div>
+            </div>
+
+            <button id="btn-launch" class="btn-launch"><i class="fas fa-play"></i> LANCER L'ATTAQUE</button>
+            
+            <button id="btn-tips" class="btn-tips"><i class="fas fa-lightbulb"></i> CONSEILS DE SÉCURITÉ</button>
+        </aside>
+            
+        </aside>
+
+        <main class="cracking-terminal">
+            <div class="term-header">
+                <span>root@nexus:~# hashcat -m 0 target_hash.txt</span>
+                <span id="status-badge" class="badge-idle">IDLE</span>
+            </div>
+            <div class="term-body" id="term-output">
+                <div class="log-line text-muted">En attente de la cible...</div>
+            </div>
+            <div class="term-footer">
+                <div class="speedometer">
+                    <i class="fas fa-tachometer-alt"></i> <span id="hash-rate">0</span> H/s
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="tips-modal" class="cyber-modal-overlay hidden">
+        <div class="cyber-card tips-card">
+            <button id="close-tips" class="close-btn"><i class="fas fa-times"></i></button>
+            <h2 class="text-cyan"><i class="fas fa-shield-alt"></i> BONNES PRATIQUES</h2>
+            
+            <ul class="tips-list">
+                <li>
+                    <i class="fas fa-ruler-horizontal text-yellow"></i>
+                    <strong>La taille compte :</strong> Visez au moins 14 caractères. Une phrase secrète longue (ex: <i>LeChatBoitDuLaitFroid!</i>) est facile à retenir mais impossible à casser en force brute.
+                </li>
+                <li>
+                    <i class="fas fa-random text-yellow"></i>
+                    <strong>Diversité :</strong> Mélangez majuscules, minuscules, chiffres et caractères spéciaux.
+                </li>
+                <li>
+                    <i class="fas fa-book-dead text-red"></i>
+                    <strong>Évitez le dictionnaire :</strong> Pas de prénoms, de dates de naissance, ou de suites logiques (123456, azerty, password).
+                </li>
+                <li>
+                    <i class="fas fa-key text-green"></i>
+                    <strong>Unicité :</strong> Utilisez un mot de passe différent pour chaque site. Si un site est piraté, vos autres comptes restent en sécurité.
+                </li>
+                <li>
+                    <i class="fas fa-lock text-cyan"></i>
+                    <strong>Gestionnaire de mots de passe :</strong> Utilisez des outils comme Proton Pass ou KeePass pour générer et retenir vos mots de passe complexes à votre place.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="script_hash.js"></script>
+</body>
+</html>

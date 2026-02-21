@@ -1,0 +1,186 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --yellow: #ffb300;
+    --cyan: #00e5ff;
+    --red: #ff003c;
+    --green: #00ff41;
+    --text-main: #e0e0e0;
+    --text-muted: #666;
+    --panel-bg: rgba(15, 15, 10, 0.9);
+}
+
+body {
+    margin: 0; min-height: 100vh;
+    background-color: var(--bg-dark);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-main);
+    background-image: linear-gradient(rgba(255, 179, 0, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 179, 0, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px; /* Effet grille léger */
+}
+
+/* --- ECRAN DE DEMARRAGE --- */
+.cyber-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95); z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(5px); transition: opacity 0.5s;
+}
+.cyber-card {
+    background: var(--panel-bg); border: 1px solid rgba(255, 179, 0, 0.3);
+    border-top: 4px solid var(--yellow); padding: 40px; max-width: 650px;
+    text-align: center; box-shadow: 0 0 50px rgba(255, 179, 0, 0.1);
+}
+.cyber-title { font-size: 2.5rem; margin-top: 0; margin-bottom: 20px; letter-spacing: 4px; }
+.text-yellow { color: var(--yellow); text-shadow: 0 0 10px var(--yellow); }
+.mission-brief { line-height: 1.6; margin-bottom: 30px; }
+.rules-grid { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; }
+.rule-box { padding: 20px; border: 1px solid #333; width: 200px; background: rgba(0,0,0,0.6); }
+.osint-box { border-bottom: 2px solid var(--yellow); }
+.osint-box i { color: var(--yellow); font-size: 2rem; margin-bottom: 10px; }
+.rule-box h3 { font-size: 0.9rem; margin: 0 0 10px 0; color: #fff; }
+.rule-box p { font-size: 0.8rem; color: #aaa; margin: 0; }
+.vs-divider { color: #444; font-size: 1.5rem; display: flex; align-items: center; }
+
+.btn-start-cyber {
+    background: rgba(255, 179, 0, 0.1); color: var(--yellow); border: 1px solid var(--yellow);
+    padding: 15px 30px; font-family: inherit; font-size: 1.1rem; font-weight: bold;
+    cursor: pointer; transition: 0.3s;
+}
+.btn-start-cyber:hover { background: var(--yellow); color: #000; box-shadow: 0 0 20px var(--yellow); }
+.hidden { display: none !important; }
+
+/* --- HUD PRINCIPAL --- */
+.hud-header { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.logo { font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+.btn-back { color: var(--text-muted); text-decoration: none; border: 1px solid #333; padding: 5px 10px; width: fit-content; transition: 0.3s; }
+.btn-back:hover { color: #fff; border-color: var(--yellow); }
+
+.scanner-container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* --- BARRE DE RECHERCHE --- */
+.search-box { display: flex; gap: 10px; margin-bottom: 30px; }
+.search-box input {
+    flex: 1; background: rgba(0,0,0,0.8); border: 1px solid var(--yellow);
+    padding: 15px; color: #fff; font-family: inherit; font-size: 1.1rem; outline: none;
+    box-shadow: inset 0 0 10px rgba(255, 179, 0, 0.1);
+}
+.search-box button {
+    background: var(--yellow); border: none; color: #000; font-weight: bold;
+    padding: 0 30px; font-family: inherit; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
+}
+.search-box button:hover { box-shadow: 0 0 20px var(--yellow); }
+
+/* --- TERMINAL DE SCAN --- */
+.scan-terminal { background: #050505; border: 1px solid #333; padding: 15px; margin-bottom: 30px; }
+.term-header { color: var(--text-muted); border-bottom: 1px dashed #333; padding-bottom: 10px; margin-bottom: 10px; font-size: 0.9rem; }
+.scan-logs { height: 120px; overflow-y: hidden; display: flex; flex-direction: column; gap: 5px; font-size: 0.85rem; margin-bottom: 15px;}
+.progress-bar-container { height: 4px; background: #222; width: 100%; }
+#scan-progress { height: 100%; width: 0%; background: var(--yellow); transition: width 0.1s linear; }
+
+/* --- DASHBOARD RESULTATS --- */
+.report-dashboard { display: grid; grid-template-columns: 1fr 1.5fr 1.5fr; gap: 20px; }
+.report-card { background: var(--panel-bg); border: 1px solid #333; padding: 20px; border-top: 3px solid var(--yellow); }
+.report-card h3 { margin-top: 0; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 1px; border-bottom: 1px solid #222; padding-bottom: 10px;}
+
+.score-card { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.score-circle {
+    width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--text-muted);
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 15px 0;
+}
+.status-label { font-weight: bold; letter-spacing: 2px; }
+
+.data-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; }
+.data-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #222; padding-bottom: 5px; font-size: 0.9rem;}
+.data-list span { color: var(--text-muted); }
+.data-list strong { color: #fff; }
+
+/* Couleurs dynamiques JS */
+.text-red { color: var(--red) !important; text-shadow: 0 0 10px var(--red); }
+.text-green { color: var(--green) !important; text-shadow: 0 0 10px var(--green); }
+.border-red { border-color: var(--red) !important; }
+.border-green { border-color: var(--green) !important; }
+/* --- ONGLETS URL / FICHIER --- */
+.scan-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab-btn {
+    background: transparent; border: 1px solid #333; color: var(--text-muted);
+    padding: 10px 20px; font-family: inherit; cursor: pointer; transition: 0.3s;
+    font-weight: bold; font-size: 0.9rem;
+}
+.tab-btn.active { background: rgba(255, 179, 0, 0.1); border-color: var(--yellow); color: var(--yellow); }
+.tab-btn:hover:not(.active) { border-color: #666; color: #fff; }
+
+.file-input {
+    flex: 1; background: rgba(0,0,0,0.8); border: 1px dashed var(--yellow);
+    padding: 12px; color: #fff; font-family: inherit; cursor: pointer;
+}
+
+/* --- DASHBOARD MIS À JOUR --- */
+.full-width { grid-column: 1 / -1; } /* Prend toute la largeur sur la grille */
+.text-main { color: var(--text-main); }
+
+/* Grille des antivirus (VirusTotal Style) */
+.av-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.av-grid::-webkit-scrollbar { width: 5px; }
+.av-grid::-webkit-scrollbar-track { background: #000; }
+.av-grid::-webkit-scrollbar-thumb { background: var(--yellow); }
+
+.av-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0,0,0,0.5); border: 1px solid #333;
+    padding: 8px 12px; font-size: 0.85rem; border-radius: 3px;
+}
+.av-name { font-weight: bold; color: #ccc; }
+.av-result { font-size: 0.8rem; }
+
+.av-clean { border-left: 3px solid var(--green); }
+.av-clean .av-result { color: var(--green); }
+
+.av-malicious { border-left: 3px solid var(--red); background: rgba(255, 0, 60, 0.05); }
+.av-malicious .av-result { color: var(--red); font-weight: bold; }
+
+/* --- CUSTOM FILE UPLOAD --- */
+.custom-file-upload {
+    flex: 1; 
+    background: rgba(0,0,0,0.8); 
+    border: 1px dashed var(--yellow);
+    padding: 15px; 
+    color: var(--text-muted); 
+    font-family: inherit; 
+    font-size: 1.1rem;
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    transition: 0.3s;
+    box-shadow: inset 0 0 10px rgba(255, 179, 0, 0.1);
+}
+
+.custom-file-upload:hover { 
+    border-color: #fff; 
+    color: #fff; 
+    background: rgba(255, 179, 0, 0.15); 
+}
+
+/* --- AVERTISSEMENT FAUX POSITIF --- */
+.fp-warning {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--yellow);
+    background: rgba(255, 179, 0, 0.1);
+    padding: 10px;
+    border-left: 3px solid var(--yellow);
+    border-radius: 2px;
+}
+
+/* Couleurs additionnelles pour les faux positifs */
+.text-yellow { color: var(--yellow) !important; text-shadow: 0 0 10px var(--yellow); }
+.border-yellow { border-color: var(--yellow) !important; }

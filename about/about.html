@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYS.ADMIN | Profil</title>
+    <link rel="stylesheet" href="style_about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <div class="container">
+        <header class="hud-header">
+            <a href="../index.html" class="btn-back"><i class="fas fa-chevron-left"></i> RETOUR AU NEXUS</a>
+        </header>
+
+        <main class="terminal-window">
+            <div class="terminal-bar">
+                <div class="window-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="window-title">root@nexus:~# cat profile.txt</div>
+            </div>
+
+            <div class="terminal-body">
+                <div id="typewriter-output"></div>
+                
+                <div id="action-links" class="hidden">
+                    <div class="skills-grid">
+                        <div class="skill-box">
+                            <span class="text-cyan">BLUE TEAM</span>
+                            <p>Analyse de logs, SOC, Détection d'intrusions</p>
+                        </div>
+                        <div class="skill-box">
+                            <span class="text-red">RED TEAM</span>
+                            <p>Bases du Pentest, Analyse de vulnérabilités, OSINT</p>
+                        </div>
+                        <div class="skill-box">
+                            <span class="text-yellow">DEV SEC</span>
+                            <p>Création d'outils (Python, JS), UI/UX pour la sécurité</p>
+                        </div>
+                    </div>
+
+                    <div class="links-container">
+                        <a href="#" class="cyber-link btn-cv"><i class="fas fa-file-pdf"></i> TÉLÉCHARGER CV</a>
+                        <a href="https://github.com/cnuddeMatteo" target="_blank" class="cyber-link"><i class="fab fa-github"></i> GITHUB</a>
+                        <a href="https://www.linkedin.com/in/mattéo-cnudde-71a7b5327/" target="_blank" class="cyber-link"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script_about.js"></script>
+</body>
+</html>

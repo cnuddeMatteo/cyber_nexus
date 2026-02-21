@@ -1,0 +1,269 @@
+/* ==========================================
+   VARIABLES & FOND (THEME NORAD / CYBER)
+   ========================================== */
+:root {
+    --bg-dark: #02050a;
+    --cyan: #00e5ff;
+    --red: #ff003c;
+    --green: #00ff41;
+    --yellow: #ffb300;
+    --text-main: #e0e0e0;
+    --text-muted: #666;
+    --panel-bg: rgba(5, 10, 15, 0.85);
+    --border-color: rgba(0, 229, 255, 0.2);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-main);
+    user-select: none; /* Empêche de surligner le texte par erreur */
+}
+
+/* Le Radar en arrière-plan */
+#map-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+}
+
+/* ==========================================
+   HUD (HEADS UP DISPLAY)
+   ========================================== */
+.hud {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none; /* Laisse les clics passer au travers, sauf sur les boutons */
+}
+
+/* --- HEADER (Haut Gauche) --- */
+.hud-header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    pointer-events: auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-red { color: var(--red); text-shadow: 0 0 10px var(--red); }
+.text-cyan { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+.text-green { color: var(--green); text-shadow: 0 0 10px var(--green); }
+
+/* Animation du point rouge "LIVE" */
+.blink_me { animation: blinker 1.5s cubic-bezier(0.5, 0, 1, 1) infinite alternate; font-size: 1rem;}
+@keyframes blinker { to { opacity: 0; } }
+
+.btn-back {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    background: rgba(0, 229, 255, 0.05);
+    width: fit-content;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn-back:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+/* --- STATS BAR (Bas Gauche) --- */
+.stats-bar {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    gap: 20px;
+    pointer-events: auto;
+}
+
+.stat {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--cyan);
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+    backdrop-filter: blur(5px);
+}
+
+.stat .label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px; }
+.stat .value { font-size: 1.5rem; font-weight: bold; }
+
+/* ==========================================
+   TERMINAL (Panneau de Droite)
+   ========================================== */
+.terminal-panel {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 400px;
+    height: calc(100vh - 60px);
+    background: var(--panel-bg);
+    border: 1px solid #222;
+    border-top: 3px solid var(--cyan);
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid #222;
+    letter-spacing: 1px;
+}
+
+.terminal-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Custom Scrollbar pour le terminal */
+.terminal-content::-webkit-scrollbar { width: 5px; }
+.terminal-content::-webkit-scrollbar-track { background: #000; }
+.terminal-content::-webkit-scrollbar-thumb { background: var(--cyan); }
+
+/* --- STYLE DES LOGS --- */
+.log-line {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.log-line .time {
+    color: var(--text-muted);
+    margin-right: 5px;
+}
+
+.log-line .alert {
+    background: var(--red);
+    color: #fff;
+    padding: 1px 5px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin-right: 5px;
+}
+
+.log-line .port {
+    color: var(--yellow);
+    font-weight: bold;
+}
+
+.log-line .ip {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+}
+
+/* Effet d'apparition des logs (Glitch / Fade in) */
+.log-line {
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(10px); color: var(--cyan); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+/* ==========================================
+   ECRAN DE DÉMARRAGE (START SCREEN)
+   ========================================== */
+.cyber-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 5, 10, 0.95);
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.5s;
+}
+
+.cyber-card {
+    background: var(--panel-bg);
+    border: 1px solid #222;
+    border-top: 4px solid var(--cyan);
+    padding: 40px;
+    max-width: 650px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 229, 255, 0.05);
+    position: relative;
+}
+
+/* Angles tech décoratifs */
+.cyber-card::before, .cyber-card::after {
+    content: ''; position: absolute; width: 20px; height: 20px; border: 2px solid var(--cyan);
+}
+.cyber-card::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.cyber-card::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.cyber-title { font-size: 2.5rem; margin-top: 0; margin-bottom: 20px; letter-spacing: 4px; }
+.mission-brief { color: var(--text-main); line-height: 1.6; margin-bottom: 30px; font-size: 1rem; }
+
+.rules-grid { display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 30px; }
+.rule-box { padding: 20px; border: 1px solid #333; width: 200px; background: rgba(0,0,0,0.6); }
+
+.blue-team-box { border-bottom: 2px solid var(--cyan); }
+.blue-team-box i { color: var(--cyan); font-size: 2rem; margin-bottom: 10px; }
+
+.red-team-box { border-bottom: 2px solid var(--red); }
+.red-team-box i { color: var(--red); font-size: 2rem; margin-bottom: 10px; }
+
+.rule-box h3 { font-size: 0.9rem; margin: 0 0 10px 0; color: #fff; }
+.rule-box p { font-size: 0.8rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+
+.vs-divider { color: #444; font-size: 1.5rem; }
+
+.controls-hint { font-size: 0.85rem; margin-bottom: 25px; letter-spacing: 1px; }
+
+.btn-start-cyber {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    padding: 15px 30px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+.btn-start-cyber:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.hidden { opacity: 0; pointer-events: none; }
