@@ -25,7 +25,9 @@ Contrairement aux outils CLI traditionnels, ce projet met l’accent sur :
 # 🚀 Modules du Nexus
 
 Le hub regroupe 3 outils majeurs couvrant **Blue Team**, **Red Team** et **OSINT**, ainsi qu’un terminal interactif de présentation.
+## 📂 Structure du Projet
 
+```text
 cyber_nexus/
 │
 ├── README.md               # Documentation du projet
@@ -51,6 +53,9 @@ cyber_nexus/
     ├── about.html
     ├── style_about.css
     └── script_about.js
+
+```
+
 ---
 
 ## 📡 1. Project Aegis
