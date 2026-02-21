@@ -3,77 +3,38 @@
 
 # 🛡️ CYBER_NEXUS
 
-> **Portfolio Opérationnel & Simulateur d’Outils de Cybersécurité**
+> **Exploration Interactive de la Cybersécurité & Simulations Défensives**
 
-Cyber_Nexus est un **hub interactif** conçu pour démontrer visuellement et pédagogiquement des concepts clés de la cybersécurité.
-Contrairement aux outils CLI traditionnels, ce projet met l’accent sur :
+**Cyber_Nexus** est un hub immersif regroupant **quatre modules interactifs** dédiés à la Blue Team, la Red Team, l’OSINT et à la présentation professionnelle.
 
-* 🎨 **UI/UX immersive**
-* 📊 **Data Visualisation**
-* 🧠 **Compréhension des mécanismes d’attaque & de défense**
-* 🛡️ **Approche DevSec**
+Ce projet démontre comment les mécanismes d’attaque et de défense peuvent être rendus **visuels, pédagogiques et accessibles**, à travers une interface Sci-Fi minimaliste entièrement développée en **Vanilla JS**.
+
+🔗 **[Voir le projet en ligne](https://cnuddematteo.github.io/cyber_nexus/)**
 
 ---
 
-## 🔗 Accès
+# 🧪 Les Modules
 
-🚀 **Live Demo :**
-(cyber_nexus : https://cnuddematteo.github.io/cyber_nexus/)
-
----
-
-# 🚀 Modules du Nexus
-
-Le hub regroupe 3 outils majeurs couvrant **Blue Team**, **Red Team** et **OSINT**, ainsi qu’un terminal interactif de présentation.
-## 📂 Structure du Projet
-
-```text
-cyber_nexus/
-│
-├── README.md               # Documentation du projet
-├── index.html              # Le Hub central (Menu principal)
-├── style_hub.css           # Feuille de style du Hub
-│
-├── aegis/                  # 🛡️ Module 1 : Project Aegis (Honeypot)
-│   ├── aegis.html
-│   ├── style_aegis.css
-│   └── script_aegis.js
-│
-├── hash/                   # 💥 Module 2 : Hash_Breaker (Crypto)
-│   ├── hash.html
-│   ├── style_hash.css
-│   └── script_hash.js
-│
-├── phish/                  # 🔍 Module 3 : Phish_Hunter (OSINT)
-│   ├── phish.html
-│   ├── style_phish.css
-│   └── script_phish.js
-│
-└── about/                  # 👤 Module 4 : SYS.ADMIN (Profil/CV)
-    ├── about.html
-    ├── style_about.css
-    └── script_about.js
-
-```
+Le Nexus regroupe quatre environnements distincts, simulant des outils et logiques utilisés en cybersécurité réelle.
 
 ---
 
-## 📡 1. Project Aegis
+## 1. 📡 Project Aegis
 
-### *(Blue Team / SOC)*
+### *(Blue Team / SOC Simulation)*
 
-**Simulateur de Honeypot & Cartographie des Menaces**
+*Cartographie dynamique des menaces.*
 
 ### 🎯 Concept
 
-Visualisation en temps réel des attaques simulées sur un serveur vulnérable exposé (Port 22).
+Simulation d’un serveur vulnérable exposé sur Internet (Port 22) recevant des attaques en temps réel.
 
 ### 🧩 Features
 
 * Radar d’attaques interactif (Canvas HTML5)
-* Logs dynamiques (IP, Pays, Ports)
-* Compteurs statistiques live
-* Simulation de trafic malveillant
+* Génération dynamique de logs (IP, Pays, Ports)
+* Compteurs statistiques en direct
+* Simulation algorithmique de trafic malveillant
 
 ### 🧠 Compétences démontrées
 
@@ -82,17 +43,19 @@ Visualisation en temps réel des attaques simulées sur un serveur vulnérable e
 * Logique algorithmique
 * Conception d’interface SOC
 
+🎨 **Thème : Bleu Défensif**
+
 ---
 
-## 💥 2. Hash_Breaker
+## 2. 💥 Hash_Breaker
 
 ### *(Red Team / Cryptographie)*
 
-**Simulateur d’attaques cryptographiques & outil de sensibilisation**
+*Comprendre la puissance du hachage et la faiblesse humaine.*
 
 ### 🎯 Concept
 
-Démonstration visuelle de la différence entre :
+Visualisation comparative entre :
 
 * Attaque par dictionnaire
 * Attaque par force brute
@@ -100,103 +63,142 @@ Démonstration visuelle de la différence entre :
 ### 🧩 Features
 
 * Calculateur d’entropie en temps réel
-* Estimation réaliste du temps de craquage (cluster simulé 100 GH/s)
+* Estimation réaliste du temps de craquage (cluster GPU simulé à 100 GH/s)
 * Générateur de mots de passe robustes
 * Interface pédagogique interactive
 
 ### 🧠 Compétences démontrées
 
 * Mathématiques du hachage
-* Gestion du DOM asynchrone
+* Manipulation asynchrone du DOM
 * Vulgarisation cyber
 * UX pédagogique
 
+🎨 **Thème : Rouge Offensif**
+
 ---
 
-## 🔍 3. Phish_Hunter
+## 3. 🔍 Phish_Hunter
 
-### *(OSINT / Forensics)*
+### *(OSINT / Forensics Simulation)*
 
-**Moteur d’analyse d’URL & de fichiers (inspiré VirusTotal)**
+*Analyse comportementale & scoring de menace.*
 
 ### 🎯 Concept
 
-Agrégation de données simulées pour déterminer la légitimité d’une cible.
+Moteur simulé d’agrégation d’informations pour évaluer la légitimité d’une URL ou d’un fichier.
 
 ### 🧩 Features
 
-* Simulation de scans multi-moteurs (>15 AV)
-* Analyse heuristique & gestion des faux positifs
+* Simulation de scans multi-moteurs (>15 antivirus)
+* Gestion heuristique des faux positifs
 * Génération d’empreinte SHA-256 simulée
 * Rapport WHOIS / SSL
-* Dashboard interactif
+* Dashboard interactif avec scoring
 
 ### 🧠 Compétences démontrées
 
 * OSINT
-* Analyse comportementale statique
-* Conception de dashboard
+* Analyse statique
 * Logique de scoring
+* Conception de dashboard cyber
+
+🎨 **Thème : Violet Analyse**
 
 ---
 
-## 👤 4. SYS.ADMIN
+## 4. 👤 SYS.ADMIN
 
 ### *(Terminal Profil Interactif)*
 
-**CV sous forme de terminal Linux**
+*Un CV sous forme de terminal Linux.*
 
 ### 🧩 Features
 
-* Animation “machine à écrire” en JavaScript
+* Animation “machine à écrire” personnalisée
 * Affichage dynamique des compétences (Blue Team / Red Team / DevSec)
-* Liens vers réseaux sociaux
-* Accès au CV PDF
+* Liens vers GitHub, LinkedIn, CV PDF
+
+🎨 **Thème : Vert Terminal**
+
+---
+
+# ✨ Fonctionnalités Globales
+
+* **Architecture modulaire** (un dossier par outil)
+* **Interface immersive minimaliste**
+* **Zéro dépendance externe (hors icônes)**
+* **Optimisé pour fluidité & lisibilité pédagogique**
+
+---
+
+# 📂 Structure du Projet
+
+```text
+cyber_nexus/
+│
+├── README.md               # Documentation du projet
+├── index.html              # Hub central
+├── style_hub.css           # Styles globaux
+│
+├── aegis/                  # 🛡️ Blue Team
+│   ├── aegis.html
+│   ├── style_aegis.css
+│   └── script_aegis.js
+│
+├── hash/                   # 💥 Red Team
+│   ├── hash.html
+│   ├── style_hash.css
+│   └── script_hash.js
+│
+├── phish/                  # 🔍 OSINT
+│   ├── phish.html
+│   ├── style_phish.css
+│   └── script_phish.js
+│
+└── about/                  # 👤 Profil
+    ├── about.html
+    ├── style_about.css
+    └── script_about.js
+```
 
 ---
 
 # 🛠️ Stack Technique
 
-Ce projet a été développé **sans framework externe** pour démontrer une maîtrise complète des fondamentaux.
-
-| Domaine       | Technologies                  |
-| ------------- | ----------------------------- |
-| Frontend      | HTML5, CSS3                   |
-| Layout        | CSS Grid, Flexbox             |
-| Animations    | CSS Animations, Glassmorphism |
-| Logique       | JavaScript ES6+               |
-| Visualisation | Canvas HTML5 2D               |
-| Icônes        | FontAwesome                   |
+* **Core :** HTML5, CSS3, JavaScript (ES6+)
+* **Rendu :** HTML5 `<canvas>` (2D Context)
+* **Design :** CSS Variables, Grid/Flexbox, Glassmorphism
+* **Icônes :** FontAwesome
+* **Zéro Framework :** Aucune librairie externe
 
 ---
 
-# ⚙️ Installation
+# 🚀 Installation
 
-Projet **100% statique (Client-side)**
-Aucun backend requis.
+Projet 100% statique (Client-side).
+
+1️⃣ **Cloner le dépôt**
 
 ```bash
 git clone https://github.com/cnuddeMatteo/cyber_nexus.git
 ```
 
-Puis :
+2️⃣ **Lancer**
 
-```bash
-Ouvrez index.html dans votre navigateur
-```
-
-Compatible : Chrome, Firefox, Brave, Edge.
+Ouvrir `index.html` dans un navigateur moderne
+(Chrome, Firefox, Brave, Edge)
 
 ---
 
-# 💡 Objectif du Projet
+# 💡 Vision du Projet
 
-En tant qu’étudiant en cybersécurité, ce projet vise à :
+Cyber_Nexus a été conçu pour :
 
-* 🛡️ Rendre la cybersécurité plus visuelle et accessible
-* 🧠 Démontrer des compétences techniques concrètes
-* ⚙️ Illustrer une approche DevSec
-* 📚 Sensibiliser aux bonnes pratiques (Hash_Breaker)
+* 🛡️ Rendre la cybersécurité visuellement compréhensible
+* 🧠 Illustrer des concepts complexes via simulation
+* ⚙️ Démontrer une approche DevSec orientée produit
+* 📚 Sensibiliser aux bonnes pratiques de sécurité
 
 ---
 
@@ -205,10 +207,10 @@ En tant qu’étudiant en cybersécurité, ce projet vise à :
 **Mattéo Cnudde**
 🎓 Étudiant en Cybersécurité & Développeur
 
-🔗 GitHub : [https://github.com/cnuddeMatteo](https://github.com/cnuddeMatteo)
-🔗 LinkedIn : [https://www.linkedin.com/in/mattéo-cnudde-71a7b5327/](https://www.linkedin.com/in/mattéo-cnudde-71a7b5327/)
+* 🔗 GitHub : [https://github.com/cnuddeMatteo](https://github.com/cnuddeMatteo)
+* 🔗 LinkedIn : [https://www.linkedin.com/in/mattéo-cnudde-71a7b5327/](https://www.linkedin.com/in/mattéo-cnudde-71a7b5327/)
 
-> *"Defense in depth, from code to infrastructure."*
+> *“Defense in depth, from code to infrastructure.”*
 
 ---
 
