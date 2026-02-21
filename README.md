@@ -18,7 +18,7 @@ Contrairement aux outils CLI traditionnels, ce projet met l’accent sur :
 ## 🔗 Accès
 
 🚀 **Live Demo :**
-👉 *[(Ajoute ici ton lien GitHub Pages)](https://cnuddematteo.github.io/cyber_nexus/)*
+(https://cnuddematteo.github.io/cyber_nexus/)*
 
 ---
 
