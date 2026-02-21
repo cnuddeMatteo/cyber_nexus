@@ -26,6 +26,31 @@ Contrairement aux outils CLI traditionnels, ce projet met l’accent sur :
 
 Le hub regroupe 3 outils majeurs couvrant **Blue Team**, **Red Team** et **OSINT**, ainsi qu’un terminal interactif de présentation.
 
+cyber_nexus/
+│
+├── README.md               # Documentation du projet
+├── index.html              # Le Hub central (Menu principal)
+├── style_hub.css           # Feuille de style du Hub
+│
+├── aegis/                  # 🛡️ Module 1 : Project Aegis (Honeypot)
+│   ├── aegis.html
+│   ├── style_aegis.css
+│   └── script_aegis.js
+│
+├── hash/                   # 💥 Module 2 : Hash_Breaker (Crypto)
+│   ├── hash.html
+│   ├── style_hash.css
+│   └── script_hash.js
+│
+├── phish/                  # 🔍 Module 3 : Phish_Hunter (OSINT)
+│   ├── phish.html
+│   ├── style_phish.css
+│   └── script_phish.js
+│
+└── about/                  # 👤 Module 4 : SYS.ADMIN (Profil/CV)
+    ├── about.html
+    ├── style_about.css
+    └── script_about.js
 ---
 
 ## 📡 1. Project Aegis
